@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - SweepYourMail</title>
+    <meta name="description" content="Privacy Policy for SweepYourMail Chrome Extension. 100% local processing, no servers, no data collection.">
+    <link rel="icon" type="image/png" href="icon128.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 30px;
+        }
+        .header img { width: 80px; margin-bottom: 15px; }
+        .header h1 { font-size: 2em; margin-bottom: 10px; }
+        .content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        h2 { color: #333; margin: 30px 0 15px; padding-bottom: 10px; border-bottom: 2px solid #667eea; }
+        h3 { color: #555; margin: 20px 0 10px; }
+        p { margin: 15px 0; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin: 8px 0; }
+        .highlight {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .highlight strong { color: #155724; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #f8f9fa; font-weight: 600; }
+        a { color: #667eea; }
+        .summary {
+            background: #e7f3ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: white;
+            text-decoration: none;
+        }
+        .last-updated { color: #666; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <img src="icon128.png" alt="SweepYourMail">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last Updated: December 2024</p>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <div class="highlight">
+                <strong>Our Privacy Commitment:</strong> SweepYourMail is built on a fundamental principle: <strong>your email data should never leave your device</strong>. We have designed our extension with a strict local-only architecture. We operate no servers, collect no data, and have no way to access your information.
+            </div>
+
+            <h2>The Most Important Points</h2>
+            <ol>
+                <li><strong>100% LOCAL PROCESSING</strong> - All operations happen in your browser</li>
+                <li><strong>NO REMOTE SERVERS</strong> - We don't operate any servers or cloud infrastructure</li>
+                <li><strong>NO DATA TRANSMISSION</strong> - Your data is never sent anywhere except Gmail's official API</li>
+                <li><strong>NO DATA COLLECTION</strong> - We collect zero user data</li>
+                <li><strong>NO ANALYTICS</strong> - We don't track how you use the extension</li>
+                <li><strong>NO THIRD PARTIES</strong> - We don't share anything with anyone</li>
+            </ol>
+
+            <h2>Overview</h2>
+            <p>SweepYourMail is a Chrome extension that helps users clean and organize their Gmail inbox by grouping emails by sender and enabling bulk actions. This privacy policy explains what data we access, how we use it, and how we protect your privacy.</p>
+
+            <h2>Data We Access</h2>
+            <h3>Email Metadata (Read-Only Access)</h3>
+            <p>When you use SweepYourMail, we access the following email metadata through the official Gmail API:</p>
+            <table>
+                <tr><th>Data Type</th><th>Purpose</th></tr>
+                <tr><td>Sender name</td><td>To group emails by sender</td></tr>
+                <tr><td>Sender email address</td><td>To identify unique senders</td></tr>
+                <tr><td>Email subject lines</td><td>For category detection (newsletters, promotions, etc.)</td></tr>
+                <tr><td>Email dates</td><td>To show date ranges and sorting</td></tr>
+                <tr><td>Email labels</td><td>To understand inbox organization</td></tr>
+                <tr><td>Message IDs</td><td>To perform actions on specific emails</td></tr>
+            </table>
+
+            <h3>What We NEVER Access</h3>
+            <ul>
+                <li><strong>Email body content</strong> - We never read your actual messages</li>
+                <li><strong>Attachments</strong> - We don't access any attached files</li>
+                <li><strong>Contacts</strong> - We don't access your contact list</li>
+                <li><strong>Calendar, Drive, Photos</strong> - We don't access any other Google services</li>
+            </ul>
+
+            <h2>How We Use Your Data</h2>
+            <h3>Local Processing Only</h3>
+            <p>All email metadata is processed <strong>entirely within your browser</strong>:</p>
+            <ol>
+                <li><strong>Fetching:</strong> Email metadata is fetched directly from Gmail API to your browser</li>
+                <li><strong>Processing:</strong> Analysis and grouping happens in browser memory</li>
+                <li><strong>Storage:</strong> Only aggregated statistics are cached in your browser's IndexedDB</li>
+                <li><strong>Display:</strong> Results are shown in the extension sidebar</li>
+                <li><strong>Actions:</strong> Your commands are sent directly to Gmail API</li>
+            </ol>
+            <p><strong>At no point does any data pass through our infrastructure, because we have no infrastructure.</strong></p>
+
+            <h2>Actions We Perform</h2>
+            <p>When you explicitly request it, SweepYourMail can perform these actions through the Gmail API:</p>
+            <table>
+                <tr><th>Action</th><th>What Happens</th></tr>
+                <tr><td>Delete</td><td>Moves emails to Gmail's Trash</td></tr>
+                <tr><td>Archive</td><td>Removes Inbox label from emails</td></tr>
+                <tr><td>Mark as Spam</td><td>Moves emails to Gmail's Spam folder</td></tr>
+                <tr><td>Block Sender</td><td>Creates a Gmail filter to auto-delete future emails</td></tr>
+                <tr><td>Mark as Read</td><td>Sets email status to read</td></tr>
+            </table>
+
+            <h2>Permissions Explained</h2>
+            <table>
+                <tr><th>Permission</th><th>Why We Need It</th></tr>
+                <tr><td><code>identity</code></td><td>To authenticate with Google OAuth 2.0</td></tr>
+                <tr><td><code>storage</code></td><td>To save your preferences locally</td></tr>
+                <tr><td><code>alarms</code></td><td>For background sync of new emails</td></tr>
+                <tr><td><code>gmail.readonly</code></td><td>To read email metadata</td></tr>
+                <tr><td><code>gmail.modify</code></td><td>To perform actions you request</td></tr>
+            </table>
+
+            <h2>Third-Party Services</h2>
+            <p>SweepYourMail communicates with <strong>only</strong> these services:</p>
+            <ul>
+                <li><strong>Gmail API</strong> (gmail.googleapis.com) - Email operations</li>
+                <li><strong>Google OAuth</strong> (googleapis.com) - Authentication</li>
+            </ul>
+            <p>We do not use analytics services, crash reporting, advertising networks, or any other third-party services.</p>
+
+            <h2>Data Security</h2>
+            <ul>
+                <li>All communication with Gmail uses HTTPS/TLS encryption</li>
+                <li>OAuth tokens are managed securely by Chrome's identity API</li>
+                <li>Tokens are never stored in plain text</li>
+                <li>Data in IndexedDB is protected by Chrome's security model</li>
+            </ul>
+
+            <h2>Your Rights and Controls</h2>
+            <h3>Access Your Data</h3>
+            <p>View locally stored data via Chrome DevTools (F12 → Application → IndexedDB)</p>
+
+            <h3>Delete Your Data</h3>
+            <ul>
+                <li>Clear extension data: Right-click extension icon → Manage extension → Clear data</li>
+                <li>Uninstall: All local data is automatically deleted</li>
+            </ul>
+
+            <h3>Revoke Gmail Access</h3>
+            <p>Remove access at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a></p>
+
+            <h2>Children's Privacy</h2>
+            <p>SweepYourMail is not intended for use by children under 13 years of age.</p>
+
+            <h2>Changes to This Policy</h2>
+            <p>We may update this privacy policy from time to time. Significant changes will be communicated through extension update notes.</p>
+
+            <h2>Contact</h2>
+            <p>For questions or concerns about this privacy policy:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:casblasvic@gmail.com">casblasvic@gmail.com</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/casblasvic">github.com/casblasvic</a></li>
+            </ul>
+
+            <div class="summary">
+                <h3>Summary</h3>
+                <p><strong>SweepYourMail processes your email metadata 100% locally to help you organize your inbox.</strong></p>
+                <ul>
+                    <li>We have NO servers</li>
+                    <li>We collect NO data</li>
+                    <li>We share NOTHING with third parties</li>
+                    <li>Your emails NEVER leave your browser</li>
+                    <li>You can delete all data instantly by uninstalling</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Your privacy is not just a feature - it's our architecture.</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
