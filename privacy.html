@@ -47,6 +47,14 @@
             border-radius: 5px;
         }
         .highlight strong { color: #155724; }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .warning strong { color: #856404; }
         table { width: 100%; border-collapse: collapse; margin: 20px 0; }
         th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
         th { background: #f8f9fa; font-weight: 600; }
@@ -63,7 +71,9 @@
             color: white;
             text-decoration: none;
         }
-        .last-updated { color: #666; font-style: italic; }
+        .last-updated { color: rgba(255,255,255,0.9); font-style: italic; }
+        code { background: #f1f1f1; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+        .scope-section { background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 10px 0; }
     </style>
 </head>
 <body>
@@ -91,7 +101,7 @@
             </ol>
 
             <h2>Overview</h2>
-            <p>SweepYourMail is a Chrome extension that helps users clean and organize their Gmail inbox by grouping emails by sender and enabling bulk actions. This privacy policy explains what data we access, how we use it, and how we protect your privacy.</p>
+            <p>SweepYourMail is a free Chrome extension that helps users clean and organize their Gmail inbox by grouping emails by sender and enabling bulk actions. This privacy policy explains what data we access, how we use it, and how we protect your privacy.</p>
 
             <h2>Data We Access</h2>
             <h3>Email Metadata (Read-Only Access)</h3>
@@ -103,6 +113,7 @@
                 <tr><td>Email subject lines</td><td>For category detection (newsletters, promotions, etc.)</td></tr>
                 <tr><td>Email dates</td><td>To show date ranges and sorting</td></tr>
                 <tr><td>Email labels</td><td>To understand inbox organization</td></tr>
+                <tr><td>Email size</td><td>To show storage usage statistics</td></tr>
                 <tr><td>Message IDs</td><td>To perform actions on specific emails</td></tr>
             </table>
 
@@ -129,75 +140,134 @@
             <h2>Actions We Perform</h2>
             <p>When you explicitly request it, SweepYourMail can perform these actions through the Gmail API:</p>
             <table>
-                <tr><th>Action</th><th>What Happens</th></tr>
-                <tr><td>Delete</td><td>Moves emails to Gmail's Trash</td></tr>
-                <tr><td>Archive</td><td>Removes Inbox label from emails</td></tr>
-                <tr><td>Mark as Spam</td><td>Moves emails to Gmail's Spam folder</td></tr>
-                <tr><td>Block Sender</td><td>Creates a Gmail filter to auto-delete future emails</td></tr>
-                <tr><td>Mark as Read</td><td>Sets email status to read</td></tr>
+                <tr><th>Action</th><th>What Happens</th><th>User Confirmation</th></tr>
+                <tr><td>Delete</td><td>Moves emails to Gmail's Trash</td><td>Required - modal confirmation</td></tr>
+                <tr><td>Archive</td><td>Removes Inbox label from emails</td><td>Required - modal confirmation</td></tr>
+                <tr><td>Mark as Spam</td><td>Moves emails to Gmail's Spam folder</td><td>Required - modal confirmation</td></tr>
+                <tr><td>Block Sender</td><td>Creates a Gmail filter to auto-delete future emails</td><td>Required - modal confirmation</td></tr>
+                <tr><td>Mark as Read</td><td>Sets email status to read</td><td>Required - modal confirmation</td></tr>
+                <tr><td>Empty Spam</td><td>Permanently deletes all spam emails</td><td>Required - warning modal with "cannot be undone"</td></tr>
+                <tr><td>Empty Trash</td><td>Permanently deletes all trash emails</td><td>Required - warning modal with "cannot be undone"</td></tr>
             </table>
 
-            <h2>Permissions Explained</h2>
+            <div class="warning">
+                <strong>Permanent Deletion:</strong> The "Empty Spam" and "Empty Trash" features permanently delete emails and cannot be undone. These actions always require explicit user confirmation through a warning dialog that clearly states the irreversible nature of the action.
+            </div>
+
+            <h2>OAuth Scopes Explained</h2>
+            <p>SweepYourMail requests the following Google OAuth scopes to function:</p>
+
+            <div class="scope-section">
+                <h3><code>gmail.readonly</code></h3>
+                <p><strong>Purpose:</strong> Read email metadata (sender, date, labels, size) to group and display emails by sender.</p>
+                <p><strong>What we read:</strong> Only email headers and metadata. We NEVER read email body content.</p>
+                <p><strong>Why needed:</strong> Users need to see which senders have the most emails to decide what to clean.</p>
+            </div>
+
+            <div class="scope-section">
+                <h3><code>gmail.modify</code></h3>
+                <p><strong>Purpose:</strong> Perform user-initiated bulk actions on emails.</p>
+                <p><strong>Actions enabled:</strong> Archive, mark as spam, move to trash, add/remove labels, mark as read/unread.</p>
+                <p><strong>Why needed:</strong> Users need to perform cleanup actions on their emails. Every action requires explicit user confirmation via a modal dialog.</p>
+            </div>
+
+            <div class="scope-section">
+                <h3><code>https://mail.google.com/</code> (Full Access)</h3>
+                <p><strong>Purpose:</strong> Required ONLY for permanent deletion operations.</p>
+                <p><strong>Actions enabled:</strong> "Empty Spam" and "Empty Trash" - permanently delete all emails in these folders.</p>
+                <p><strong>Why needed:</strong> Gmail's batchDelete API requires this scope. The gmail.modify scope only allows moving to trash, not permanent deletion.</p>
+                <p><strong>Safeguards:</strong></p>
+                <ul>
+                    <li>Permanent deletion is ONLY available for Spam and Trash folders</li>
+                    <li>Users must confirm via a warning modal before any permanent deletion</li>
+                    <li>The modal explicitly states "This action cannot be undone"</li>
+                </ul>
+            </div>
+
+            <h2>Chrome Extension Permissions</h2>
             <table>
                 <tr><th>Permission</th><th>Why We Need It</th></tr>
-                <tr><td><code>identity</code></td><td>To authenticate with Google OAuth 2.0</td></tr>
-                <tr><td><code>storage</code></td><td>To save your preferences locally</td></tr>
-                <tr><td><code>alarms</code></td><td>For background sync of new emails</td></tr>
-                <tr><td><code>gmail.readonly</code></td><td>To read email metadata</td></tr>
-                <tr><td><code>gmail.modify</code></td><td>To perform actions you request</td></tr>
+                <tr><td><code>identity</code></td><td>To authenticate with Google OAuth 2.0 securely</td></tr>
+                <tr><td><code>storage</code></td><td>To save your preferences locally in Chrome</td></tr>
+                <tr><td><code>alarms</code></td><td>For optional background sync of new emails</td></tr>
+                <tr><td><code>notifications</code></td><td>To notify you when background operations complete</td></tr>
+                <tr><td><code>offscreen</code></td><td>To enable background indexing when Gmail tab is not active</td></tr>
             </table>
 
             <h2>Third-Party Services</h2>
             <p>SweepYourMail communicates with <strong>only</strong> these services:</p>
             <ul>
                 <li><strong>Gmail API</strong> (gmail.googleapis.com) - Email operations</li>
-                <li><strong>Google OAuth</strong> (googleapis.com) - Authentication</li>
+                <li><strong>Google OAuth</strong> (accounts.google.com) - Authentication</li>
             </ul>
-            <p>We do not use analytics services, crash reporting, advertising networks, or any other third-party services.</p>
+            <p><strong>We do not use:</strong></p>
+            <ul>
+                <li>Analytics services (no Google Analytics, no Mixpanel, nothing)</li>
+                <li>Crash reporting services</li>
+                <li>Advertising networks</li>
+                <li>Any other third-party services</li>
+            </ul>
+
+            <h2>Data Flow Diagram</h2>
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; font-family: monospace;">
+                <p style="font-size: 1.1em;">
+                    <strong>Your Browser</strong> ↔ <strong>Gmail API</strong> (googleapis.com)
+                </p>
+                <p style="margin-top: 10px; color: #666;">That's it. Nothing else. No intermediary servers.</p>
+            </div>
 
             <h2>Data Security</h2>
             <ul>
                 <li>All communication with Gmail uses HTTPS/TLS encryption</li>
                 <li>OAuth tokens are managed securely by Chrome's identity API</li>
-                <li>Tokens are never stored in plain text</li>
-                <li>Data in IndexedDB is protected by Chrome's security model</li>
+                <li>Tokens are never stored in plain text or accessible to websites</li>
+                <li>Data in IndexedDB is protected by Chrome's security model and isolated per-origin</li>
+                <li>Each Google account's data is stored separately and isolated</li>
             </ul>
 
             <h2>Your Rights and Controls</h2>
             <h3>Access Your Data</h3>
-            <p>View locally stored data via Chrome DevTools (F12 → Application → IndexedDB)</p>
+            <p>View locally stored data via Chrome DevTools (F12 → Application → IndexedDB → SweepYourMail)</p>
 
             <h3>Delete Your Data</h3>
             <ul>
-                <li>Clear extension data: Right-click extension icon → Manage extension → Clear data</li>
-                <li>Uninstall: All local data is automatically deleted</li>
+                <li><strong>Clear extension data:</strong> Right-click extension icon → Manage extension → Clear data</li>
+                <li><strong>From extension settings:</strong> Open sidebar → Settings → Export/Clear Data → Clear All Data</li>
+                <li><strong>Uninstall:</strong> All local data is automatically deleted when you uninstall the extension</li>
             </ul>
 
             <h3>Revoke Gmail Access</h3>
-            <p>Remove access at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a></p>
+            <p>Remove SweepYourMail's access to your Google account at any time:</p>
+            <p><a href="https://myaccount.google.com/permissions" target="_blank">myaccount.google.com/permissions</a></p>
 
             <h2>Children's Privacy</h2>
-            <p>SweepYourMail is not intended for use by children under 13 years of age.</p>
+            <p>SweepYourMail is not intended for use by children under 13 years of age. We do not knowingly collect any information from children.</p>
 
             <h2>Changes to This Policy</h2>
-            <p>We may update this privacy policy from time to time. Significant changes will be communicated through extension update notes.</p>
+            <p>We may update this privacy policy from time to time. Significant changes will be communicated through extension update notes in the Chrome Web Store. The "Last Updated" date at the top of this policy indicates when it was last revised.</p>
+
+            <h2>Open Source Philosophy</h2>
+            <p>While SweepYourMail is not open source, we operate with transparency principles. Our architecture is deliberately simple and local-only, making it verifiable that no data leaves your browser.</p>
 
             <h2>Contact</h2>
-            <p>For questions or concerns about this privacy policy:</p>
+            <p>For questions, concerns, or requests regarding this privacy policy:</p>
             <ul>
                 <li><strong>Email:</strong> <a href="mailto:casblasvic@gmail.com">casblasvic@gmail.com</a></li>
                 <li><strong>GitHub:</strong> <a href="https://github.com/casblasvic">github.com/casblasvic</a></li>
+                <li><strong>Website:</strong> <a href="https://sweepyourmail.com">sweepyourmail.com</a></li>
             </ul>
 
             <div class="summary">
                 <h3>Summary</h3>
                 <p><strong>SweepYourMail processes your email metadata 100% locally to help you organize your inbox.</strong></p>
                 <ul>
-                    <li>We have NO servers</li>
-                    <li>We collect NO data</li>
-                    <li>We share NOTHING with third parties</li>
-                    <li>Your emails NEVER leave your browser</li>
-                    <li>You can delete all data instantly by uninstalling</li>
+                    <li>✓ We have <strong>NO servers</strong> - zero infrastructure</li>
+                    <li>✓ We collect <strong>NO data</strong> - nothing is sent to us</li>
+                    <li>✓ We share <strong>NOTHING</strong> with third parties</li>
+                    <li>✓ Your emails <strong>NEVER leave</strong> your browser</li>
+                    <li>✓ Every action requires <strong>your explicit confirmation</strong></li>
+                    <li>✓ You can <strong>delete all data instantly</strong> by uninstalling</li>
+                    <li>✓ Extension is <strong>FREE</strong> with no monetization of user data</li>
                 </ul>
                 <p style="margin-top: 15px;"><strong>Your privacy is not just a feature - it's our architecture.</strong></p>
             </div>
