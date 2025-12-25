@@ -318,6 +318,28 @@
         .footer-links a:hover { color: white; }
         .footer-copy { color: var(--text-muted); font-size: 0.85rem; }
 
+        /* Story Section */
+        .story-section { padding: 80px 0; }
+        .story-box { background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.02) 100%); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 24px; padding: 48px; max-width: 900px; margin: 0 auto; }
+        .story-header { text-align: center; margin-bottom: 32px; }
+        .story-header h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; color: var(--accent); }
+        .story-header p { color: var(--text-muted); font-size: 1rem; }
+        .story-content { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        @media (max-width: 768px) { .story-content { grid-template-columns: 1fr; } }
+        .story-card { background: rgba(255, 255, 255, 0.03); border-radius: 16px; padding: 24px; }
+        .story-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .story-card h3 span { font-size: 1.3rem; }
+        .story-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+        .story-card.highlight { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); }
+        .story-card.highlight h3 { color: var(--success); }
+
+        /* Support Section */
+        .support-section { padding: 60px 0; }
+        .support-box { background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(139, 92, 246, 0.02) 100%); border: 1px solid rgba(139, 92, 246, 0.15); border-radius: 20px; padding: 40px; max-width: 800px; margin: 0 auto; text-align: center; }
+        .support-box h3 { font-size: 1.35rem; font-weight: 600; margin-bottom: 16px; }
+        .support-box p { color: var(--text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 12px; }
+        .support-box .note { font-size: 0.9rem; color: var(--accent); font-style: italic; }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero { padding: 140px 0 80px; }
@@ -325,6 +347,7 @@
             .cta-box { padding: 48px 24px; }
             .footer-content { flex-direction: column; text-align: center; }
             .differentiator { flex-direction: column; text-align: center; padding: 20px; }
+            .story-box { padding: 32px 20px; }
         }
     </style>
 </head>
@@ -338,11 +361,12 @@
                 <span>SweepYourMail</span>
             </a>
             <div class="nav-links">
+                <a href="#story">Our Story</a>
                 <a href="#features">Features</a>
                 <a href="#security">Security</a>
                 <a href="#compare">Compare</a>
                 <a href="privacy.html">Privacy</a>
-                <a href="https://chromewebstore.google.com/detail/sweepyourmail/nlmfgafkdojiflknmpdlnfemhlbdpffg" class="btn btn-primary">Add to Chrome</a>
+                <a href="https://chromewebstore.google.com/detail/sweepyourmail/nlmfgafkdojiflknmpdlnfemhlbdpffg" class="btn btn-primary">Add to Chrome — Free</a>
             </div>
         </div>
     </nav>
@@ -424,6 +448,40 @@
                 <div class="trust-badge">
                     <div class="trust-badge-icon">⚡</div>
                     <span class="trust-badge-text">Lightning Fast</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section" id="story">
+        <div class="container">
+            <div class="story-box">
+                <div class="story-header">
+                    <h2>Our Story</h2>
+                    <p>Why we built this — and why it's free</p>
+                </div>
+                <div class="story-content">
+                    <div class="story-card">
+                        <h3><span>💭</span> The Problem</h3>
+                        <p>We're a group of developers who were fed up with overflowing inboxes. Newsletters we never read, promotions we ignore, notifications from years ago. We tried the alternatives... and they all wanted $7-15/month or limited free users to 20 actions/month.</p>
+                    </div>
+                    <div class="story-card">
+                        <h3><span>🛠️</span> The Solution</h3>
+                        <p>So we built it ourselves. SweepYourMail was born to solve our own problem. No venture capital, no monetization strategy, no hidden agenda. Just a tool that works.</p>
+                    </div>
+                    <div class="story-card highlight">
+                        <h3><span>🎁</span> Why It's Free (Really)</h3>
+                        <p><strong>No servers = No costs.</strong> Everything runs locally in your browser. We don't pay for cloud infrastructure because we don't use any. Your data never leaves your device — which is more secure AND means we have zero operating costs. Built entirely with open-source software.</p>
+                    </div>
+                    <div class="story-card">
+                        <h3><span>💚</span> Your Only "Payment"</h3>
+                        <p>If you like SweepYourMail, leave us a review on the Chrome Web Store. That's it. It helps others discover the tool and makes us happy to know it's useful.</p>
+                    </div>
+                </div>
+                <div style="margin-top: 24px; padding: 20px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 12px;">
+                    <p style="color: #F87171; font-size: 0.95rem; margin: 0; text-align: center;">
+                        <strong>⚠️ A word of caution:</strong> We analyzed other "local" extensions and found some actually send data to external servers despite claiming otherwise. SweepYourMail is truly 100% local — you can verify our code yourself.
+                    </p>
                 </div>
             </div>
         </div>
@@ -530,11 +588,22 @@
         </div>
     </section>
 
+    <section class="support-section">
+        <div class="container">
+            <div class="support-box">
+                <h3>Need Help? We're Here (Just Be Patient)</h3>
+                <p>We provide support through the extension — there's a contact button in settings. We read every message and respond to everyone.</p>
+                <p>We also welcome improvement suggestions. Have an idea? Tell us!</p>
+                <p class="note">Just one thing: we have our day jobs and families. SweepYourMail is a passion project we maintain in our free time. We'll respond, but it might take a few days. Thank you for understanding.</p>
+            </div>
+        </div>
+    </section>
+
     <section class="cta-section">
         <div class="container">
             <div class="cta-box">
                 <h2>Ready to clean your inbox?</h2>
-                <p>Join users who've taken back control of their email. Unlike paid alternatives with limits, SweepYourMail is truly free — unlimited actions, no credit card, forever.</p>
+                <p>Made by developers, for everyone. No limits, no tricks, no subscription. Just a clean inbox.</p>
                 <a href="https://chromewebstore.google.com/detail/sweepyourmail/nlmfgafkdojiflknmpdlnfemhlbdpffg" class="btn btn-large">
                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 4.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15z"/></svg>
                     Clean Your Inbox Now — 100% Free
@@ -552,7 +621,7 @@
                     <a href="mailto:hello@sweepyourmail.com">Contact</a>
                     <a href="https://github.com/casblasvic/SweepYourMail-docs">GitHub</a>
                 </div>
-                <p class="footer-copy">© 2025 SweepYourMail. Made with privacy in mind.</p>
+                <p class="footer-copy">© 2025 SweepYourMail. Made by developers, for everyone. Free forever.</p>
             </div>
         </div>
     </footer>
