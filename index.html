@@ -94,10 +94,10 @@
             },
             {
                 "@type": "Offer",
-                "name": "Pro Multi-5",
+                "name": "Pro Unlimited",
                 "price": "19",
                 "priceCurrency": "USD",
-                "description": "1 year, up to 5 Gmail accounts"
+                "description": "1 year, unlimited Gmail accounts"
             }
         ],
         "aggregateRating": {
@@ -136,7 +136,7 @@
                 "name": "How much does SweepYourMail cost?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "SweepYourMail offers flexible pricing: $2 Day Pass for 24-hour access, $9/year for Pro Single (1 account), $19/year for Pro Multi-5 (up to 5 accounts), and $29/year for Pro Unlimited. That's up to 85% cheaper than alternatives like Clean Email."
+                    "text": "SweepYourMail offers simple pricing: $2 Day Pass for 24-hour access, $9/year for Pro (1 account), or $19/year for Unlimited (all your accounts). That's up to 85% cheaper than alternatives like Clean Email."
                 }
             },
             {
@@ -250,9 +250,8 @@
         .section-title { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; margin-bottom: 16px; }
         .section-subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
 
-        .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
-        @media (max-width: 1000px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { .pricing-grid { grid-template-columns: 1fr; } }
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+        @media (max-width: 800px) { .pricing-grid { grid-template-columns: 1fr; } }
 
         .pricing-card { background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(102, 126, 234, 0.05) 100%); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 20px; padding: 32px 24px; text-align: center; position: relative; transition: all 0.3s ease; }
         .pricing-card:hover { transform: translateY(-4px); border-color: rgba(139, 92, 246, 0.4); }
@@ -406,11 +405,13 @@
                 <a href="#pricing" class="btn btn-secondary btn-large">View Pricing</a>
             </div>
             <p class="hero-note">Install the extension, then purchase a license to unlock all features</p>
-            <div class="differentiator">
-                <span class="differentiator-icon">💡</span>
-                <span class="differentiator-text">
-                    <strong>Why pay $59/year for Clean Email?</strong> SweepYourMail Pro costs just <strong>$9/year</strong> - same powerful features, 100% local processing.
-                </span>
+            <div class="differentiator" style="flex-direction: column; text-align: center; padding: 24px 32px;">
+                <p style="font-size: 1.05rem; color: var(--text); line-height: 1.7; margin-bottom: 16px;">
+                    <strong style="color: var(--primary-light);">Hi, I'm Mike!</strong> I always wanted SweepYourMail to be completely free. But Google now requires expensive annual security certifications that cost thousands of dollars.
+                </p>
+                <p style="font-size: 1rem; color: var(--text-muted); margin: 0;">
+                    For just <strong style="color: var(--accent);">$2</strong>, you can clean your entire inbox today with zero restrictions. Your support helps keep this tool alive. Thank you! 🙏
+                </p>
             </div>
         </div>
     </section>
@@ -455,59 +456,44 @@
                     <div class="pricing-icon">⚡</div>
                     <div class="pricing-name">Day Pass</div>
                     <div class="pricing-price">$2</div>
-                    <div class="pricing-period">24-hour access</div>
+                    <div class="pricing-period">Full access for 24 hours</div>
                     <ul class="pricing-features">
                         <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> All features unlocked</li>
-                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Unlimited actions</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Zero restrictions</li>
                         <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 1 Gmail account</li>
                         <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Perfect for one-time cleanup</li>
                     </ul>
                     <a href="https://sweepyourmail.gumroad.com/l/luvqt" class="pricing-btn secondary" target="_blank">Get Day Pass</a>
                 </div>
 
-                <!-- Pro Single - Popular -->
+                <!-- Pro - Popular -->
                 <div class="pricing-card popular">
                     <div class="pricing-icon">✨</div>
-                    <div class="pricing-name">Pro Single</div>
+                    <div class="pricing-name">Pro</div>
                     <div class="pricing-price">$9<span>/year</span></div>
                     <div class="pricing-period">1 Gmail account</div>
                     <ul class="pricing-features">
                         <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> All features unlocked</li>
                         <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Unlimited actions</li>
-                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 1 Gmail account</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Full year of access</li>
                         <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 85% cheaper than Clean Email</li>
                     </ul>
-                    <a href="https://sweepyourmail.gumroad.com/l/rihqel" class="pricing-btn primary" target="_blank">Get Pro Single</a>
+                    <a href="https://sweepyourmail.gumroad.com/l/rihqel" class="pricing-btn primary" target="_blank">Get Pro</a>
                 </div>
 
-                <!-- Pro Multi-5 -->
+                <!-- Unlimited -->
                 <div class="pricing-card">
-                    <div class="pricing-icon">👥</div>
-                    <div class="pricing-name">Pro Multi-5</div>
+                    <div class="pricing-icon">♾️</div>
+                    <div class="pricing-name">Unlimited</div>
                     <div class="pricing-price">$19<span>/year</span></div>
-                    <div class="pricing-period">Up to 5 Gmail accounts</div>
+                    <div class="pricing-period">All your Gmail accounts</div>
                     <ul class="pricing-features">
                         <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> All features unlocked</li>
                         <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Unlimited actions</li>
-                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 5 Gmail accounts</li>
-                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Perfect for families</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Unlimited Gmail accounts</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> For families & teams</li>
                     </ul>
-                    <a href="https://sweepyourmail.gumroad.com/l/knsmyq" class="pricing-btn secondary" target="_blank">Get Pro Multi-5</a>
-                </div>
-
-                <!-- Pro Unlimited -->
-                <div class="pricing-card">
-                    <div class="pricing-icon">🏢</div>
-                    <div class="pricing-name">Pro Unlimited</div>
-                    <div class="pricing-price">$29<span>/year</span></div>
-                    <div class="pricing-period">Unlimited Gmail accounts</div>
-                    <ul class="pricing-features">
-                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> All features unlocked</li>
-                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Unlimited actions</li>
-                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Unlimited accounts</li>
-                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> For teams & agencies</li>
-                    </ul>
-                    <a href="https://sweepyourmail.gumroad.com/l/qgrtvd" class="pricing-btn secondary" target="_blank">Get Pro Unlimited</a>
+                    <a href="https://sweepyourmail.gumroad.com/l/knsmyq" class="pricing-btn secondary" target="_blank">Get Unlimited</a>
                 </div>
             </div>
             <div style="text-align:center;margin-top:32px;">
